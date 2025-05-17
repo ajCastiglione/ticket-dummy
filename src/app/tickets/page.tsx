@@ -1,18 +1,6 @@
 import { getTickets } from "@/actions/ticket.actions";
 import Link from "next/link";
-
-const getPriorityClass = (priority: string) => {
-  switch (priority) {
-    case "High":
-      return "text-red-600 font-bold";
-    case "Medium":
-      return "text-yellow-600 font-bold";
-    case "Low":
-      return "text-green-600 font-bold";
-    default:
-      return "text-gray-600 font-bold";
-  }
-};
+import { getPriorityClass } from "@/utils/ui";
 
 async function TicketsPage() {
   const tickets = await getTickets();
