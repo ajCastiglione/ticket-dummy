@@ -13,8 +13,8 @@ const LogoutBtn = () => {
 
   useEffect(() => {
     if (state.success) {
-      toast.success("Logged out successfully!");
-    } else if (state.message) {
+      toast.success(state.message);
+    } else if (state.message && !state.success) {
       toast.error(state.message);
     }
   }, [state]);
