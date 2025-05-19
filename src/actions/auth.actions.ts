@@ -2,7 +2,7 @@
 import { prisma } from "@/db/prisma";
 import bcrypt from "bcryptjs";
 import { logEvent } from "@/utils/sentry";
-import { signAuthToken, setAuthToken } from "@/lib/auth";
+import { signAuthToken, setAuthToken, deleteAuthToken } from "@/lib/auth";
 
 type ResponseResult = {
   success: boolean;
@@ -90,6 +90,30 @@ export async function registerNewUser(
     return {
       success: false,
       message: "Something went wrong, please try again",
+    };
+  }
+}
+
+// Log user out; remove auth token.
+export async function logoutUser(): Promise<{
+  success: boolean;
+  message: string;
+}> {
+  try {
+    await deleteAuthToken();
+
+    logEvent("User logged out", "auth", {}, "info");
+
+    return {
+      success: true,
+      message: "Logged out successfully",
+    };
+  } catch (error) {
+    logEvent("Error logging out", "auth", {}, "error", error);
+
+    return {
+      success: false,
+      message: "Logout failed, please try again",
     };
   }
 }
