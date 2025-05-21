@@ -10,7 +10,7 @@ The Ticket System project is a basic web app to showcase Next.js, React, and Pos
 ## Installation
 1. Clone the repository:
 	```bash
-	git clone https://github.com/your-username/ticket-system.git
+	git clone git@github.com:ajCastiglione/ticket-dummy.git
 	```
 2. Navigate to the project directory:
 	```bash
