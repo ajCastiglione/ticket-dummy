@@ -14,7 +14,7 @@ The Ticket System project is a basic web app to showcase Next.js, React, and Pos
 	```
 2. Navigate to the project directory:
 	```bash
-	cd ticket-system
+	cd ticket-dummy
 	```
 3. Install dependencies:
 	```bash
